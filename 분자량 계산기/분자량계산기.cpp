@@ -2,6 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+#include <Windows.h>
 
 float m[27][27];
 
@@ -38,13 +39,12 @@ int main(){
 	int atofirst=0;
 	
 	setting();
+	printf("예시: NaCl, CH3COOH\n");
 	printf("입력: ");
 	scanf("%s", str);
 	N=strlen(str);
 	
 	for(int i=0;i<N;i++){
-		printf("%c", str[i]);
-		printf("%lf", ans);
 		if(str[i]>='0'&&str[i]<='9'){
 			if(nowpt==0){
 				printf("ERROR");
@@ -64,25 +64,10 @@ int main(){
 			now[0]=0; now[1]=0;
 			now[nowpt++]=str[i];
 			atofirst=1;
-			printf("%s", now);
 		}
 		else if(str[i]>='a'&&str[i]<='z'&&nowpt==1){
 			now[nowpt++]=str[i];
-			printf("%s", now);
 		}
-		/*
-		else if(str[i]>='A'&&str[i]<='Z'&&nowpt==1){
-			printf("ERROR");
-			exit(0);
-		}
-		else if(str[i]>='a'&&str[i]<='z'&&nowpt==0){
-			printf("ERROR");
-			exit(0);
-		}
-		else if(str[i]>='A'&&str[i]<='z'&&nowpt==2){
-			printf("ERROR");
-			exit(0);
-		}*/
 		else {
 			printf("ERROR");
 			exit(0);
@@ -92,8 +77,8 @@ int main(){
 		if(num) ans+=getMol(now)*num;
 		else ans+=getMol(now);
 	}
-	printf("%lf", ans);
+	printf("%lf\n\n", ans);
 	
-	
+	system("pause");
 	return 0;
 }
