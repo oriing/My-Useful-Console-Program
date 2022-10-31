@@ -1,3 +1,5 @@
+//제작자: 박정식(충남과학고등학교)
+
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
